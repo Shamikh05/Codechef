@@ -2,7 +2,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main () {
+#define int long long
+
+signed main () {
 
         int t;
         cin >> t;
@@ -18,33 +20,28 @@ int main () {
                 cin >> n >> k;
                 cin >> s;
 
-                i = 0;
-                j = k - 1;
+                string ans;
+                string suffix = s.substr(k,n-k);
 
-                if(k % 2 != 0) {
-                        while(i<j) {
+                int i = 0;
+                int j = k - 1;
 
-                                if(s[i] != s[j])
-                                        swap(s[i],s[j--]);
-                                else {
-                                        i++;
-                                        j--;
-                                }
-                        }
-                }
-                else {
-                        while(i<j-1) {
+                while(i<j) {
 
-                                if(s[i] != s[j])
-                                        swap(s[i],s[j--]);
-                                else {
-                                        i++;
-                                        j--;
-                                }
-                        }
+                        ans.push_back(s[i]);
+                        ans.push_back(s[j]);
+
+                        i++;
+                        j--;
                 }
 
-                cout << s << endl;
+                if(i==j) ans.push_back(s[i]);
+
+                reverse(ans.begin(), ans.end());
+
+                ans.append(suffix);
+
+                cout << ans << endl;
         }
 
         return 0;

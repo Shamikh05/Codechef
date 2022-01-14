@@ -11,8 +11,6 @@ signed main () {
 
         int n,s,e;
 
-        //int ans = 0;
-
         int m1 = INT_MAX;
         int m2 = INT_MIN;
 
