@@ -16,27 +16,21 @@ int32_t main() {
                 int n;
                 cin >> n;
 
-                int i = 1;
-                int t = 0;
+                int pairs = 0;
 
-                int count = 0;
+                for(int i=1;i<=((n-1)/2);++i) {
 
-                while(1) {
-
-                        int a = i;
-                        int b = n - i;
-
-                        if(b%a==0 and a != b) ++count;
-
-                        if(a==b) t = 1;
-
-                        ++i;
-
-                        if(a==(n/2)) break;
+                        if(n % i == 0)
+                                ++pairs;
                 }
 
-                cout << 2 * count + t << endl;
+                pairs *= 2;
 
+                if(!(n&1)) {
+                        ++pairs;
+                }
+
+                cout << pairs << endl;
         }
 
         return 0;
